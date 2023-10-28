@@ -1,0 +1,76 @@
+@import "reset.scss";
+
+$bg:#DDE1D3;
+$blue:#01A0C8;
+$red:#D03022;
+$burntRed:#573533;
+
+body{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster{
+    width: 37%;
+    height: 100%;
+    display: grid;
+    background-color: $bg;
+    padding: 20px;
+    grid-template-columns: 70px 1fr 70px;
+    grid-template-rows: 70px 1.2fr 70px 1fr 70px 1.2fr 70px;
+    box-sizing: border-box;
+    .top-left,
+    .top-right,
+    .top-top,
+    .center-bottom{
+        background-color: $blue;
+    }
+    .center-top,
+    .bottom-left,
+    .bottom-right,
+    .bottom-bottom{
+        background-color: $red;
+    }
+    .center-left,
+    .center-right{
+        background-color: $burntRed;
+    }
+
+    .top-left,
+    .top-right,
+    .bottom-left,
+    .bottom-right{
+        grid-row: span 2;
+    }
+    .center-left,
+    .center-right{
+        grid-row: span 3;
+    }
+    h1{        
+        font-size: 85px;
+        font-weight: bolder;
+    }
+    >div{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: 20px;
+        gap:10px;
+        font-weight: 600;
+    }
+    .bottom-top{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        div{
+           
+            span{
+                display: block;
+            }
+        }
+    }
+}

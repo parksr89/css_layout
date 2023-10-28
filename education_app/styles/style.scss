@@ -1,0 +1,269 @@
+@import "reset.css";
+
+@mixin name() {
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;        
+  align-items: center;         
+
+  & .name-name{
+    margin-left: -120px; 
+  }   
+
+  & .name-img{
+    height: 25px;
+    width: 25px;          
+    border-radius: 50%;
+  }
+}
+
+@mixin page(){
+background-color: black;
+height: 550px;
+width: 270px;
+border: 1px solid black;
+border-radius: 40px;
+display: grid; 
+box-shadow: 0 9px 10px rgba(50, 50, 93, 0.8);
+}
+
+body{
+  background-color: white;
+  padding: 20px;
+  display: grid;
+  height: 800px;
+  gap: 50px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  grid-template-columns: 300px 300px;
+
+  & .display-page{ 
+    @include page();
+
+    grid-column: 1 / 2;
+    grid-template-rows: 1fr .15fr;
+    padding: 5px;
+    padding-top: 50px;    
+    row-gap: 5px;  
+
+    & .display-page__big-part{
+      grid-row:1 /2;
+      background-color:#D5E2F7;
+      border-radius: 20px;
+      padding: 10px;
+      display: grid;
+      grid-template-rows: 0.1fr 0.9fr 0.4fr 0.15fr;
+
+      & .display-page__big-part__name{       
+        grid-row:1 / 2;   
+        @include name();     
+
+      }
+
+      & .display-page__big-part__main{        
+        align-self: center;
+        font-family:'Times New Roman', Times, serif;        
+        text-align: start;
+        font-size: 45px;
+        line-height:50px ;
+      }
+
+      & .display-page__big-part__progress{
+
+        & .display-page__big-papxrt__progress__inProgress{
+          margin: 0px 5px;          
+        }
+
+        & .display-page__big-part__progress__percent{
+          margin: 10px 0px 5px 2px;
+          font-size: 35px;
+          font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        & .display-page__big-part__progress__percentBar{         
+          all:unset;
+          width: 100%;
+          background:white;
+          border: 1px solid black;
+          height: 10px;          
+          border-radius: 10px;
+          accent-color: white;          
+        }
+
+        & .display-page__big-part__progress__date{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 12px;
+            font-weight: 500;
+
+            span{
+              display: block;              
+            }
+        }
+      }
+
+      & .display-page__big-part__button{
+        all:unset;
+        border: 1px solid black;
+        background-color:#FFFFFF;  
+        border-radius: 15px; 
+        text-align: center;
+        font-weight: 500;       
+      }
+    }
+
+    & .display-page__small-part{
+      grid-row: 2 /3;
+      background-color:#F4F2EE;
+      border-radius: 20px;
+      height: 80px;
+      border-bottom-left-radius: 35px;
+      border-bottom-right-radius: 35px;
+      
+      & .display-page__small-part__name {
+        @include name();
+        margin-left: 7px;
+        & .display-page__small-part__name-name{
+          margin-left: -95px;
+        }
+        & .display-page__small-part__name-Free {
+          transform: scale(1.1) translate(-5px, 13px) rotateZ(45deg);
+          padding: 10px 12px;
+          border: 1px solid;
+          border-radius: 20px;
+          background-color: #FFDD2C;
+        }
+
+      }
+      
+      & .home-btn{
+        display: flex;
+        justify-content: space-around;
+        width: 100px;
+        height: 20px;
+        background-color: #000000;
+        padding: 10px 5px;
+        align-items: center;
+        border-radius: 30px;
+        transform: translate(80px, -35px) scale(1.15);
+        box-shadow: 0 4px 6px rgba(50, 50, 93, 0.6);
+        
+        i{
+          padding: 5px;
+          border-radius: 50px;
+          background-color: #262626;
+          color: #A2A2A2;
+        }
+      } 
+    }
+
+  }
+  & .selections-page{
+    @include page(); 
+    height: 605px;
+    width: 283px;    
+    padding: 50px 10px;
+    box-sizing: border-box;
+
+  }
+}
+
+.header{
+  overflow-x:hidden;
+  margin-top: 4px;
+  .header__list{     
+    display: flex;
+    color: white;
+    font-size: 13px;
+    display: flex;    
+    gap: 7px;
+    align-items: center;
+    width: max-content;
+    .header__list-item{
+      border: 1px solid rgba($color: #fff, $alpha: 0.8);
+      padding : 5px;      
+      border-radius: 30px;
+    }
+    .header__list-item__inverted{
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.cards{  
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 5px;
+  .cards__card{
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;;
+    justify-content: space-between;  
+    
+    .card__title{
+      font-size: 22px;
+      font-weight: 400;
+    }    
+    .card__footer{
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span{
+        padding: 5px 7px;
+        border-radius: 20px;
+        border: 1px solid black;
+      }
+      .price{
+        background-color:#FFDD2C ;
+      }
+      .length{
+        background-color: white;
+        color: black;
+      }
+    }
+    &:first-child{
+      background-color: #292D33;
+      color: black;
+      border: 1px solid white;
+      .card__title{
+        color: white;
+      }
+    }
+    &:nth-child(2){
+      background-color: #F6F4F1;
+      color: black;      
+    }
+    &:nth-child(3){
+      background-color:#F9FDBE;
+      color: black;      
+    }
+    &:nth-child(4){
+      background-color:#B19FF6;
+      color: black;      
+    }
+    &:nth-child(5){
+      background-color:#FFD6D6;
+      color: black;   
+      .price{
+        background-color: #E9AFFC;
+      }   
+    }
+    &:nth-child(6){
+      background-color:#D1FEDE;
+      color: black;      
+    }
+
+    &:nth-child(3n){
+      grid-column: span 2;
+      .price{
+        background-color: #E9AFFC;
+      }
+    }
+
+  }
+}

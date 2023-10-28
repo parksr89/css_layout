@@ -1,0 +1,16 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+body{
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+.poster{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  
+}
